@@ -18,14 +18,31 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 //week-2 code starts
-var articleOne = {
+var articles ={
+'article-one': {
   title: 'Article One',
   heading: 'First Article',
   content: `
   <p>
     This is my first Article
   </p>
-`
+`},
+'article-two': {
+  title: 'Article Two',
+  heading: 'Second Article',
+  content: `
+  <p>
+    This is my second Article
+  </p>
+`},
+'article-three': {
+  title: 'Article Three',
+  heading: 'Third Article',
+  content: `
+  <p>
+    This is my third Article
+  </p>
+`},
 };
 function createTemplate(data){
     var title = data.title;
@@ -45,8 +62,9 @@ function createTemplate(data){
     return htmlTemplate;
 }
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+    //articleName = [] content object for article one
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two',function(req,res){
