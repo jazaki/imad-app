@@ -18,8 +18,34 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 //week-2 code starts
+var articleOne = {
+  title: 'Article One',
+  heading: 'First Article',
+  content: `
+  <p>
+    This is my first Article
+  </p>
+`
+};
+function createTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var content = data.content;
+    var htmlTemplate=`
+        <html>
+        <title>${title}</title>
+        <body>
+            <h1>
+                ${heading}
+            </h1>
+            ${content}
+        </body>
+        </html>
+    `;
+}
+
 app.get('/article-one',function(req,res){
-    res.send('Article one is requested and will be served');
+    res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two',function(req,res){
