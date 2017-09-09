@@ -42,6 +42,7 @@ function createTemplate(data){
         </body>
         </html>
     `;
+    return htmlTemplate;
 }
 
 app.get('/article-one',function(req,res){
